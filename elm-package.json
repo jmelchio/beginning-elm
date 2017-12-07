@@ -1,7 +1,7 @@
 {
     "version": "0.0.1",
     "summary": "Just some fiddles with Elm",
-    "repository": "git@github.com:jmelchio/beginning-elm.git",
+    "repository": "https://github.com/jmelchio/beginning-elm.git",
     "license": "",
     "source-directories": [
         "."

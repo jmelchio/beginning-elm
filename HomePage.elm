@@ -6,7 +6,7 @@ import Html.Attributes exposing (..)
 
 view model =
     div [ class "jumbotron" ]
-        [ h1 [] [ text "Welcom to Dunder MIfflin!" ]
+        [ h1 [] [ text "Welcome to Dunder Mifflin!" ]
         , p []
             [ text "Dunder Mifflin Inc. (stock symbol "
             , strong [] [ text "DMI" ]

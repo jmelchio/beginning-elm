@@ -8145,7 +8145,7 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
-var _user$project$BeginningElm$view = function (model) {
+var _jmelchio$beginning_elm$BeginningElm$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -8160,7 +8160,7 @@ var _user$project$BeginningElm$view = function (model) {
 				{ctor: '[]'},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('Welcom to Dunder MIfflin!'),
+					_0: _elm_lang$html$Html$text('Welcome to Dunder Mifflin!'),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -8192,13 +8192,13 @@ var _user$project$BeginningElm$view = function (model) {
 			}
 		});
 };
-var _user$project$BeginningElm$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
-	_user$project$BeginningElm$view('dummy model'));
+var _jmelchio$beginning_elm$BeginningElm$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
+	_jmelchio$beginning_elm$BeginningElm$view('dummy model'));
 
 var Elm = {};
 Elm['BeginningElm'] = Elm['BeginningElm'] || {};
-if (typeof _user$project$BeginningElm$main !== 'undefined') {
-    _user$project$BeginningElm$main(Elm['BeginningElm'], 'BeginningElm', undefined);
+if (typeof _jmelchio$beginning_elm$BeginningElm$main !== 'undefined') {
+    _jmelchio$beginning_elm$BeginningElm$main(Elm['BeginningElm'], 'BeginningElm', undefined);
 }
 
 if (typeof define === "function" && define['amd'])
