@@ -3,6 +3,28 @@ module Playground exposing (..)
 import Html
 
 
+type alias Person =
+    { firstName : String
+    , lastName : String
+    , nationality : String
+    , age : Int
+    }
+
+
+personList : List Person
+personList =
+    [ { firstName = "Joris", lastName = "Melchior", nationality = "CA", age = 53 }
+    , { firstName = "Andrea", lastName = "Melchior", nationality = "CA", age = 52 }
+    , { firstName = "Jasper", lastName = "Melchior", nationality = "CA", age = 18 }
+    , { firstName = "Alanna", lastName = "Melchior", nationality = "CA", age = 15 }
+    ]
+
+
+filterPersonByAge : Int -> Person -> Bool
+filterPersonByAge age person =
+    person.age == age
+
+
 revelation : String
 revelation =
     """
@@ -112,9 +134,12 @@ time startTime endTime =
 main : Html.Html msg
 main =
     -- Html.text (escapeEarth 11 (speed 7.67 (time 2 3)))
-    time 2 3
-        |> speed 7.67
-        |> escapeEarth "low" 11
+    -- time 2 3
+    --     |> speed 7.67
+    --     |> escapeEarth "low" 11
+    --     |> Html.text
+    List.filter (filterPersonByAge 18) personList
+        |> toString
         |> Html.text
 
 
