@@ -4,7 +4,8 @@
     "repository": "https://github.com/jmelchio/beginning-elm.git",
     "license": "",
     "source-directories": [
-        "."
+        ".",
+        "elm-examples"
     ],
     "exposed-modules": [],
     "dependencies": {

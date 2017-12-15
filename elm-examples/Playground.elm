@@ -131,6 +131,40 @@ time startTime endTime =
     endTime - startTime
 
 
+multiplyByFive : number -> number
+multiplyByFive number =
+    let
+        multiplier =
+            5
+    in
+    number * multiplier
+
+
+multiplier : Int
+multiplier =
+    2
+
+
+scores : List Int
+scores =
+    [ 316, 320, 312, 370, 337, 318, 314 ]
+
+
+scoresLessThan320 : List Int -> List Int
+scoresLessThan320 scores =
+    List.filter isLessThan320 scores
+
+
+isLessThan320 : Int -> Bool
+isLessThan320 score =
+    score < 320
+
+
+doubleScores : List Int -> List Int
+doubleScores scores =
+    List.map (\x -> x * multiplier) scores
+
+
 main : Html.Html msg
 main =
     -- Html.text (escapeEarth 11 (speed 7.67 (time 2 3)))
@@ -138,7 +172,10 @@ main =
     --     |> speed 7.67
     --     |> escapeEarth "low" 11
     --     |> Html.text
-    List.filter (filterPersonByAge 18) personList
+    -- List.filter (filterPersonByAge 18) personList
+    --     |> toString
+    --     |> Html.text
+    multiplyByFive 3
         |> toString
         |> Html.text
 
