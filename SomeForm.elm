@@ -6,7 +6,7 @@ import Html.Events exposing (onClick, onInput)
 
 
 main =
-    Html.beginnerProgram { model = model, view = view, update = update }
+    Html.beginnerProgram { view = view, update = update }
 
 
 
