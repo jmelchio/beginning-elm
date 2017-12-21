@@ -2,7 +2,7 @@ module SomeForm exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onInput)
+import Html.Events exposing (onClick, onInput)
 
 
 main =
@@ -17,12 +17,13 @@ type alias Model =
     { name : String
     , password : String
     , passwordAgain : String
+    , age : String
     }
 
 
 model : Model
 model =
-    Model "" "" ""
+    Model "" "" "" ""
 
 
 
@@ -30,9 +31,11 @@ model =
 
 
 type Msg
-    = Name String
+    = Submit
+    | Name String
     | Password String
     | PasswordAgain String
+    | Age String
 
 
 update : Msg -> Model -> Model
@@ -47,6 +50,16 @@ update msg model =
         PasswordAgain password ->
             { model | passwordAgain = password }
 
+        Age age ->
+            { model | age = age }
+
+        Submit ->
+            let
+                _ =
+                    Debug.log "***Submit***" model
+            in
+            model
+
 
 
 -- VIEW
@@ -58,6 +71,8 @@ view model =
         [ input [ type_ "text", placeholder "Name", onInput Name ] []
         , input [ type_ "password", placeholder "Password", onInput Password ] []
         , input [ type_ "password", placeholder "Re-enter Password", onInput PasswordAgain ] []
+        , input [ type_ "text", placeholder "Age", onInput Age ] []
+        , button [ onClick Submit ] [ text "Submit" ]
         , viewValidation model
         ]
 
