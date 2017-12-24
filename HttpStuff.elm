@@ -65,6 +65,7 @@ view model =
     div []
         [ h2 [] [ text model.topic ]
         , img [ src model.gifUrl ] []
+        , br [] []
         , button [ onClick MorePlease ] [ text "More Please!" ]
         ]
 
