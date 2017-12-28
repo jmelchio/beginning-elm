@@ -31,17 +31,22 @@ type Msg
 update : Msg -> Model -> Html Msg
 update msg model =
     div []
-        [ fieldset []
-            [ radio (SwitchTo Small) "Small"
-            , radio (SwitchTo Medium) "Medium"
-            , radio (SwitchTo Large) "Large"
+        [ viewPicker
+            [ ( "Small", SwitchTo Small )
+            , ( "Medium", SwitchTo Medium )
+            , ( "Large", SwitchTo Large )
             ]
         , section [] [ text model.content ]
         ]
 
 
-radio : Msg -> String -> Html Msg
-radio msg name =
+viewPicker : List ( String, Msg ) -> Html Msg
+viewPicker options =
+    fieldset [] (List.map radio options)
+
+
+radio : ( String, Msg ) -> Html Msg
+radio ( name, msg ) =
     label []
         [ input [ type_ "radio", onClick msg ] []
         , text name
