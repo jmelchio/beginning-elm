@@ -32,18 +32,17 @@ update : Msg -> Model -> Html Msg
 update msg model =
     div []
         [ fieldset []
-            [ label []
-                [ input [ type_ "radio", onClick (SwitchTo Small) ] []
-                , text "Small"
-                ]
-            , label []
-                [ input [ type_ "radio", onClick (SwitchTo Medium) ] []
-                , text "Medium"
-                ]
-            , label []
-                [ input [ type_ "radio", onClick (SwitchTo Large) ] []
-                , text "Large"
-                ]
+            [ radio (SwitchTo Small) "Small"
+            , radio (SwitchTo Medium) "Medium"
+            , radio (SwitchTo Large) "Large"
             ]
         , section [] [ text model.content ]
+        ]
+
+
+radio : Msg -> String -> Html Msg
+radio msg name =
+    label []
+        [ input [ type_ "radio", onClick msg ] []
+        , text name
         ]
