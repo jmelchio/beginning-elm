@@ -31,7 +31,7 @@ type Msg
 update : Msg -> Model -> Html Msg
 update msg model =
     div []
-        [ viewPicker
+        [ viewPicker "colorful"
             [ ( "Small", SwitchTo Small )
             , ( "Medium", SwitchTo Medium )
             , ( "Large", SwitchTo Large )
@@ -40,9 +40,9 @@ update msg model =
         ]
 
 
-viewPicker : List ( String, Msg ) -> Html Msg
-viewPicker options =
-    fieldset [] (List.map radio options)
+viewPicker : String -> List ( String, Msg ) -> Html Msg
+viewPicker pickerClass options =
+    fieldset [ class pickerClass ] (List.map radio options)
 
 
 radio : ( String, Msg ) -> Html Msg
