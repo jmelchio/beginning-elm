@@ -28,8 +28,23 @@ type Msg
     = SwitchTo FontSize
 
 
-update : Msg -> Model -> Html Msg
+
+-- UPDATE
+
+
+update : Msg -> Model -> Model
 update msg model =
+    case msg of
+        SwitchTo newFontSize ->
+            { model | fontSize = newFontSize }
+
+
+
+-- VIEW
+
+
+view : Msg -> Model -> Html Msg
+view msg model =
     div []
         [ viewPicker "colorful"
             [ ( "Small", SwitchTo Small )
