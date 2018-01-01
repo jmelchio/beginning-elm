@@ -1,6 +1,6 @@
 module SuperSimple exposing (..)
 
-import Html exposing (Attribute, Html, button, div, input, text)
+import Html exposing (Attribute, Html, br, button, div, input, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
 
@@ -14,14 +14,14 @@ main =
 
 
 type alias Model =
-    { teller : Int
+    { counter : Int
     , content : String
     }
 
 
 model : Model
 model =
-    { teller = 0
+    { counter = 0
     , content = ""
     }
 
@@ -41,13 +41,13 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         Increment ->
-            { model | teller = model.teller + 1 }
+            { model | counter = model.counter + 1 }
 
         Decrement ->
-            { model | teller = model.teller - 1 }
+            { model | counter = model.counter - 1 }
 
         Reset ->
-            { model | teller = 0 }
+            { model | counter = 0 }
 
         Change newContent ->
             { model | content = newContent }
@@ -61,8 +61,9 @@ view : Model -> Html Msg
 view model =
     div []
         [ button [ onClick Decrement ] [ text "-" ]
-        , div [] [ text (toString model.teller) ]
+        , div [] [ text (toString model.counter) ]
         , button [ onClick Increment ] [ text "+" ]
+        , br [] []
         , button [ onClick Reset ] [ text "Reset" ]
         , div []
             [ input [ placeholder "Text to reverse", onInput Change ] []
