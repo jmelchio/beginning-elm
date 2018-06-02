@@ -5,6 +5,15 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 
 
+main =
+    Html.beginnerProgram
+        { view = view
+        , model = model
+        , update = update
+        }
+
+
+
 -- MODEL
 
 
@@ -20,6 +29,11 @@ type FontSize
     | Large
 
 
+model : Model
+model =
+    Model Medium "Some random text so we can see it ..."
+
+
 
 -- UPDATE
 
@@ -28,14 +42,14 @@ type Msg
     = SwitchTo FontSize
 
 
-
--- UPDATE
-
-
 update : Msg -> Model -> Model
 update msg model =
     case msg of
         SwitchTo newFontSize ->
+            let
+                _ =
+                    Debug.log "**** SwitchTo ****" newFontSize
+            in
             { model | fontSize = newFontSize }
 
 
@@ -43,8 +57,8 @@ update msg model =
 -- VIEW
 
 
-view : Msg -> Model -> Html Msg
-view msg model =
+view : Model -> Html Msg
+view model =
     div []
         [ viewPicker "colorful"
             [ ( "Small", SwitchTo Small )
