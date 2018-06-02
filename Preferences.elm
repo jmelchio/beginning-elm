@@ -5,6 +5,15 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 
 
+main =
+    Html.beginnerProgram
+        { view = view
+        , model = model
+        , update = update
+        }
+
+
+
 -- MODEL
 
 
@@ -13,6 +22,11 @@ type alias Model =
     , autoplay : Bool
     , location : Bool
     }
+
+
+model : Model
+model =
+    Model False False False
 
 
 
@@ -27,6 +41,10 @@ type Msg
 
 update : Msg -> Model -> Model
 update msg model =
+    let
+        _ =
+            Debug.log "Model before change" model
+    in
     case msg of
         ToggleNotifications ->
             { model | notifications = not model.notifications }
