@@ -75,8 +75,13 @@ viewPicker pickerClass options =
 
 
 radio : ( String, Msg ) -> Html Msg
-radio ( name, msg ) =
+radio ( dname, msg ) =
     label []
-        [ input [ type_ "radio", onClick msg ] []
-        , text name
+        [ input
+            [ type_ "radio"
+            , onClick msg
+            , name "sumtin"
+            ]
+            []
+        , text dname
         ]
