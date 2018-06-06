@@ -75,7 +75,7 @@ viewPicker pickerClass options =
 
 
 radio : ( String, Msg ) -> Html Msg
-radio ( dname, msg ) =
+radio ( labeltext, msg ) =
     label []
         [ input
             [ type_ "radio"
@@ -83,5 +83,5 @@ radio ( dname, msg ) =
             , name "sumtin"
             ]
             []
-        , text dname
+        , text labeltext
         ]
